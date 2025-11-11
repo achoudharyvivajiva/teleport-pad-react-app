@@ -7,7 +7,7 @@ export const StyledButton = styled.button`
   border-radius: 8px;
   cursor: pointer;
   color: white;
-  font-weight: 600;
+  font-weight:${({ theme }) => theme.weight.bold}; 
 
   &:hover {
     opacity: 0.85;

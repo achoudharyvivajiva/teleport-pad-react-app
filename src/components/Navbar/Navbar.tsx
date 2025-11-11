@@ -1,9 +1,10 @@
-import { Nav, Logo } from "./Navbar.styles";
+import { Nav, Logo, Version } from "./Navbar.styles";
 
 const Navbar = () => {
   return (
     <Nav>
-      <Logo>MyApp</Logo>
+      <Logo src="./src/assets/img/newlogo.png" />
+      <Version>Version: 1.00</Version>
     </Nav>
   );
 };

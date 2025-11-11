@@ -1,12 +1,21 @@
 import styled from "styled-components";
 
 export const Nav = styled.nav`
-  padding: 20px;
+  height: 72px;
+  padding: 0 20px;
   background: ${({ theme }) => theme.colors.secondary};
-  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
 
-export const Logo = styled.h1`
-  margin: 0;
-  font-weight: 700;
+export const Logo = styled.img`
+  height: 40px;
+`;
+
+export const Version = styled.span`
+  color: ${({ theme }) => theme.colors.text};
+  font-size: 14px;
+  opacity: 0.8;
+  color: ${({theme})=>theme.colors.white};
 `;

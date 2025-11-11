@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
+import { Content, IpadContainer } from "./MainLayout.styles";
 
 interface Props {
   children: React.ReactNode;
@@ -8,11 +9,11 @@ interface Props {
 
 const MainLayout = ({ children }: Props) => {
   return (
-    <>
+    <IpadContainer>
       <Navbar />
-      <div style={{ padding: 20 }}>{children}</div>
-      <Footer/>
-    </>
+      <Content>{children}</Content>
+      <Footer />
+    </IpadContainer>
   );
 };
 
