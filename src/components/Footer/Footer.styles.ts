@@ -24,7 +24,7 @@ export const SunIcon = styled.img`
 `;
 
 export const Slider = styled.input.attrs({ type: "range" })`
-  width: 119px;
+  width: 100%;
   height: 4px;
   border-radius: 2px;
 

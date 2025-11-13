@@ -32,14 +32,15 @@ import { Scanner } from "@yudiel/react-qr-scanner";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import type { IDetectedBarcode } from "../../types/scanner";
+import scanLogo from "../../assets/img/scan.png";
+import ipadScan from "../../assets/img/ipad.png";
+import testCode from "../../assets/img/testcode.png";
 
 const Home = () => {
   const navigate = useNavigate();
-  const [toggleCamera, setToggleCamera] = useState<boolean>(false);
   const [idBandNumber, setIdBandNumber] = useState<number>();
   const handleAssociateDevice = () => {
     const idLength = idBandNumber?.toString().length;
-    console.log(idLength);
 
     if (idBandNumber && idLength === 10) {
       navigate(`/PatientIdentifierInformation/5080483241`);
@@ -71,35 +72,40 @@ const Home = () => {
           <FormInput
             type="text"
             placeholder="Type CSN Number (eg. 5080483241)"
-            value={idBandNumber}
+            value={idBandNumber == 0 ? "" : idBandNumber}
             onChange={(e) => setIdBandNumber(Number(e.target.value))}
           />
           <FormOR className="or">Or</FormOR>
+          <ScanSection>
+            <ScanLogo src={scanLogo} alt="scanlogo" />
+
+            <ScanRight>
+              <ScanHeading>Scan the Band Here</ScanHeading>
+              <ScanPara>Scan your band's barcode using the camera.</ScanPara>
+              <ScannerBox>
+                {typeof window !== "undefined" && (
+                  <Scanner
+                    constraints={{ facingMode: "environment" }}
+                    onScan={(result: IDetectedBarcode[]) => {
+                      if (result?.length > 0) {
+                        console.log("Scanned:", result[0]?.rawValue);
+                      }
+                    }}
+                    onError={(error) => console.log("Scanner Error:", error)}
+                    styles={{
+                      container: { width: "100%", height: "100%" },
+                      video: {
+                        objectFit: "cover",
+                        width: "100%",
+                        height: "100%",
+                      },
+                    }}
+                  />
+                )}
+              </ScannerBox>
+            </ScanRight>
+          </ScanSection>
         </FormSection>
-
-        <ScanSection>
-          {toggleCamera ? (
-            <div onClick={() => setToggleCamera(false)}>
-              <Scanner
-                styles={{ container: { width: "184px", height: "147px" } }}
-                onScan={(result: IDetectedBarcode[]) => console.log(result)}
-                onError={(error: unknown) => console.log(error)}
-              />
-            </div>
-          ) : (
-            <ScanLogo
-              src="./src/assets/img/scan.png"
-              alt="scanlogo"
-              onClick={() => setToggleCamera(true)}
-            />
-          )}
-
-          <ScanRight>
-            <ScanHeading>Scan the Band Here</ScanHeading>
-            <ScanPara>Scan your band's barcode using the camera.</ScanPara>
-            <ScannerBox />
-          </ScanRight>
-        </ScanSection>
 
         <BottomSection>
           <PrimaryButton
@@ -112,15 +118,12 @@ const Home = () => {
 
         <FooterSection>
           <FooterLeft>
-            <FooterLeftImg src="./src/assets/img/ipad.png" alt="ipadscaner" />
+            <FooterLeftImg src={ipadScan} alt="ipadscaner" />
           </FooterLeft>
           <FooterRight>
             <FooterContent>
               <FooterUpperContent>Device Name</FooterUpperContent>
-              <FooterLowerContent
-                src="./src/assets/img/testcode.png"
-                alt="testcode"
-              />
+              <FooterLowerContent src={testCode} alt="testcode" />
             </FooterContent>
           </FooterRight>
         </FooterSection>

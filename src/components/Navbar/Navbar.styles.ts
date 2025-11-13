@@ -17,5 +17,5 @@ export const Version = styled.span`
   color: ${({ theme }) => theme.colors.text};
   font-size: 14px;
   opacity: 0.8;
-  color: ${({theme})=>theme.colors.white};
+  color: ${({ theme }) => theme.colors.white};
 `;

@@ -11,6 +11,7 @@ export const theme = {
     border: "#E5E7EB",
     green: "#027564",
     red: "#D42A2A",
+    black: "#000000",
   },
   spacing: {
     xs: "4px",
@@ -26,6 +27,7 @@ export const theme = {
     body: "16px",
     small: "14px",
   },
+
   radius: {
     sm: "6px",
     md: "10px",

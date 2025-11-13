@@ -17,7 +17,9 @@ import {
   SecondaryButton,
   SectionTitle,
 } from "./PatientIdentifierInformation.styles";
-
+import profile from "../../assets/img/profile.jpg";
+import peopleIcon from "../../assets/icons/people.png";
+import interIcon from "../../assets/icons/interpreter-.png";
 export const PatientIdentifierInformation = () => {
   const navigate = useNavigate();
   return (
@@ -26,7 +28,7 @@ export const PatientIdentifierInformation = () => {
         <HeaderSection>Patient Identifier Information</HeaderSection>
         <PatientIdentifierInformationSection>
           <PatientImageWrapper>
-            <img src="/src/assets/img/profile.jpg" alt="patient" />
+            <img src={profile} alt="patient" />
           </PatientImageWrapper>
 
           <BasicInfoSection>
@@ -76,11 +78,11 @@ export const PatientIdentifierInformation = () => {
         </PatientIdentifierInformationSection>
         <BottomSection>
           <PrimaryButton>
-            <Icon src="/src/assets/icons/people.png" />
+            <Icon src={peopleIcon} alt="people" />
             Connect with Family or Frineds
           </PrimaryButton>
           <SecondaryButton>
-            <Icon src="/src/assets/icons/interpreter-.png" />
+            <Icon src={interIcon} alt="inter icon" />
             Add Interpreter
           </SecondaryButton>
         </BottomSection>

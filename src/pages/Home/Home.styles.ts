@@ -68,15 +68,35 @@ export const FormLabel = styled.label`
   color: ${({ theme }) => theme.colors.lightgray};
   font-size: ${({ theme }) => theme.typography.small};
 `;
-export const FormInput = styled.input`
+export const FormInput = styled.input.attrs({
+  type: "number",
+})`
   width: 100%;
   padding: 14px;
   border-radius: 4px;
   border: none;
   outline: none;
-  color: ${({ theme }) => theme.colors.darkgray};
+  color: ${({ theme }) => theme.colors.black};
   font-size: 15px;
+
+  /* Hide spinner arrows in Chrome, Safari, Edge, Opera */
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Hide spinner arrows in Firefox */
+  &[type="number"] {
+    -moz-appearance: textfield;
+  }
+  &:focus {
+    border-color: ${({ theme }) => theme.colors.secondary};
+    background-color: rgba(0, 255, 0, 0.05);
+    box-shadow: 0 0 5px ${({ theme }) => theme.colors.secondary};
+  }
 `;
+
 export const FormOR = styled.div`
   text-align: center;
   margin: 20px 0;
@@ -87,7 +107,7 @@ export const FormOR = styled.div`
 
 export const ScanSection = styled.div`
   display: flex;
-  justify-content: center;
+  /* justify-content: start; */
   align-items: flex-start;
   gap: 40px;
   margin-bottom: 40px;
@@ -95,11 +115,12 @@ export const ScanSection = styled.div`
 
 export const ScanLogo = styled.img`
   width: 184px;
-  height: 147px;
+  height: 100%;
 `;
 
 export const ScanRight = styled.div`
   display: flex;
+  width: 100%;
   flex-direction: column;
   color: ${({ theme }) => theme.colors.white};
 `;
@@ -115,11 +136,17 @@ export const ScanPara = styled.h3`
   margin-bottom: 10px;
 `;
 
-export const ScannerBox = styled.h3`
-  width: 424px;
+export const ScannerBox = styled.div`
+  width: 100%;
   height: 104px;
   background: repeating-conic-gradient(#444 0% 25%, #777 0% 50%) 50% / 30px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 8px;
 `;
+
 export const BottomSection = styled.div`
   text-align: center;
 `;
@@ -142,6 +169,7 @@ export const PrimaryButton = styled.button`
 export const FooterSection = styled.div`
   display: flex;
   width: 100%;
+  height: 100%;
 `;
 export const FooterLeft = styled.div`
   flex: 1;
@@ -168,6 +196,6 @@ export const FooterUpperContent = styled.span`
   margin: 10px 0px;
 `;
 export const FooterLowerContent = styled.img`
-  height: auto;
-  width: 290px;
+  height: 80px;
+  width: 100%;
 `;

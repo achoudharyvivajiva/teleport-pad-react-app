@@ -1,0 +1,46 @@
+PODS:
+  - Capacitor (7.4.4):
+    - CapacitorCordova
+  - CapacitorCommunityKeepAwake (7.1.0):
+    - Capacitor
+  - CapacitorCommunityScreenBrightness (7.0.0):
+    - Capacitor
+  - CapacitorCordova (7.4.4)
+  - CapacitorDevice (7.0.2):
+    - Capacitor
+  - CapacitorScreenOrientation (7.0.2):
+    - Capacitor
+
+DEPENDENCIES:
+  - "Capacitor (from `../../node_modules/@capacitor/ios`)"
+  - "CapacitorCommunityKeepAwake (from `../../node_modules/@capacitor-community/keep-awake`)"
+  - "CapacitorCommunityScreenBrightness (from `../../node_modules/@capacitor-community/screen-brightness`)"
+  - "CapacitorCordova (from `../../node_modules/@capacitor/ios`)"
+  - "CapacitorDevice (from `../../node_modules/@capacitor/device`)"
+  - "CapacitorScreenOrientation (from `../../node_modules/@capacitor/screen-orientation`)"
+
+EXTERNAL SOURCES:
+  Capacitor:
+    :path: "../../node_modules/@capacitor/ios"
+  CapacitorCommunityKeepAwake:
+    :path: "../../node_modules/@capacitor-community/keep-awake"
+  CapacitorCommunityScreenBrightness:
+    :path: "../../node_modules/@capacitor-community/screen-brightness"
+  CapacitorCordova:
+    :path: "../../node_modules/@capacitor/ios"
+  CapacitorDevice:
+    :path: "../../node_modules/@capacitor/device"
+  CapacitorScreenOrientation:
+    :path: "../../node_modules/@capacitor/screen-orientation"
+
+SPEC CHECKSUMS:
+  Capacitor: 358dd1c3fdd71d969547b17e159fd8a7736cb45f
+  CapacitorCommunityKeepAwake: 05c75aab989f60e621870cf03b24a144a5544c30
+  CapacitorCommunityScreenBrightness: 508f3d0f79024cd8da7d063f456870a4a1932723
+  CapacitorCordova: bf648a636f3c153f652d312ae145fb508b6ffced
+  CapacitorDevice: 81ae78d5d1942707caad79276badd458bf6ec603
+  CapacitorScreenOrientation: e0d5b9ef293b269b8f93373355d5b276f50fabea
+
+PODFILE CHECKSUM: 482ad04513ead9ebe2b419cca90a7ddc92038a30
+
+COCOAPODS: 1.16.2
