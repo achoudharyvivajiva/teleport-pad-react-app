@@ -43,7 +43,7 @@ const Home = () => {
     const idLength = idBandNumber?.toString().length;
 
     if (idBandNumber && idLength === 10) {
-      navigate(`/PatientIdentifierInformation/5080483241`);
+      navigate(`/patient-identifier-information/5080483241`);
     } else {
     }
   };
@@ -71,6 +71,8 @@ const Home = () => {
           <FormLabel>Enter ID Band Number</FormLabel>
           <FormInput
             type="text"
+            min={10}
+            max={10}
             placeholder="Type CSN Number (eg. 5080483241)"
             value={idBandNumber == 0 ? "" : idBandNumber}
             onChange={(e) => setIdBandNumber(Number(e.target.value))}
@@ -86,6 +88,7 @@ const Home = () => {
                 {typeof window !== "undefined" && (
                   <Scanner
                     constraints={{ facingMode: "environment" }}
+                    paused
                     onScan={(result: IDetectedBarcode[]) => {
                       if (result?.length > 0) {
                         console.log("Scanned:", result[0]?.rawValue);

@@ -47,6 +47,7 @@ export const HeaderRight = styled.div`
 `;
 export const SecondaryButton = styled.button`
   padding: 15px 20px;
+  height: 45px;
   background: ${({ theme }) => theme.colors.green};
   border: none;
   border-radius: 4px;
@@ -92,14 +93,13 @@ export const FormInput = styled.input.attrs({
   }
   &:focus {
     border-color: ${({ theme }) => theme.colors.secondary};
-    background-color: rgba(0, 255, 0, 0.05);
     box-shadow: 0 0 5px ${({ theme }) => theme.colors.secondary};
   }
 `;
 
 export const FormOR = styled.div`
   text-align: center;
-  margin: 20px 0;
+  margin: 15px 0;
   color: ${({ theme }) => theme.colors.gray};
   font-weight: ${({ theme }) => theme.weight.normal};
   font-size: ${({ theme }) => theme.typography.body};
@@ -152,8 +152,8 @@ export const BottomSection = styled.div`
 `;
 
 export const PrimaryButton = styled.button`
-  padding: 15px 25px;
-  border: none;
+  padding: 15px 20px;
+  height: 45px;
   border-radius: 4px;
   cursor: pointer;
   color: ${({ theme }) => theme.colors.white};
@@ -170,13 +170,14 @@ export const FooterSection = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
+  margin-top: 20px;
 `;
 export const FooterLeft = styled.div`
   flex: 1;
 `;
 export const FooterLeftImg = styled.img`
   height: auto;
-  width: 250px;
+  width: 190px;
 `;
 
 export const FooterRight = styled.div`
@@ -196,6 +197,6 @@ export const FooterUpperContent = styled.span`
   margin: 10px 0px;
 `;
 export const FooterLowerContent = styled.img`
-  height: 80px;
+  height: 60px;
   width: 100%;
 `;

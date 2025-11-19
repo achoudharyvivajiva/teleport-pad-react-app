@@ -1,9 +1,11 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Container } from "../../components";
 import {
+  AddButton,
   AdditionalInfoSection,
   BasicInfoSection,
-  BottomSection,
+  ButtonsContainer,
+  CloseButton,
   DeAssociateButton,
   Divider,
   FooterSection,
@@ -16,12 +18,23 @@ import {
   PrimaryButton,
   SecondaryButton,
   SectionTitle,
+  StyledDropdown,
 } from "./PatientIdentifierInformation.styles";
 import profile from "../../assets/img/profile.jpg";
 import peopleIcon from "../../assets/icons/people.png";
+import telephoneIcon from "../../assets/icons/telephone.png";
+
 import interIcon from "../../assets/icons/interpreter-.png";
+import { useState } from "react";
+import { languages } from "../../utils/utils";
+import { Dropdown } from "primereact/dropdown";
 export const PatientIdentifierInformation = () => {
+  const [showLanguageDropdown, setShowLanguageDropdown] =
+    useState<boolean>(false);
+  const [selectedLanguage, setSelectedLanguage] = useState(null);
+
   const navigate = useNavigate();
+  const { id } = useParams();
   return (
     <Container>
       <PageWrapper>
@@ -50,7 +63,7 @@ export const PatientIdentifierInformation = () => {
             </InfoRow>
 
             <InfoRow>
-              <span className="label">DOB</span>
+              <span className="label">Date Of Brith</span>
               <span className="value">Aug 2, 1989</span>
             </InfoRow>
           </BasicInfoSection>
@@ -76,16 +89,41 @@ export const PatientIdentifierInformation = () => {
             </InfoRow>
           </AdditionalInfoSection>
         </PatientIdentifierInformationSection>
-        <BottomSection>
-          <PrimaryButton>
+
+        <ButtonsContainer>
+          <PrimaryButton onClick={() => navigate(`/${id}/family-and-friend`)}>
             <Icon src={peopleIcon} alt="people" />
-            Connect with Family or Frineds
+            Connect with Family or Friends
           </PrimaryButton>
-          <SecondaryButton>
-            <Icon src={interIcon} alt="inter icon" />
-            Add Interpreter
-          </SecondaryButton>
-        </BottomSection>
+
+          {showLanguageDropdown ? (
+            <>
+              <StyledDropdown>
+                <Dropdown
+                  value={selectedLanguage}
+                  onChange={(e) => setSelectedLanguage(e.value)}
+                  options={languages}
+                  optionLabel="name"
+                  placeholder="Select a Language"
+                />
+              </StyledDropdown>
+
+              <AddButton>
+                <Icon src={telephoneIcon} alt="people" />
+                Add
+              </AddButton>
+
+              <CloseButton onClick={() => setShowLanguageDropdown(false)}>
+                Close
+              </CloseButton>
+            </>
+          ) : (
+            <SecondaryButton onClick={() => setShowLanguageDropdown(true)}>
+              <Icon src={interIcon} alt="inter icon" />
+              Add Interpreter
+            </SecondaryButton>
+          )}
+        </ButtonsContainer>
 
         <FooterSection>
           <DeAssociateButton onClick={() => navigate("/")}>

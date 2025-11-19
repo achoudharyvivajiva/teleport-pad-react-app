@@ -7,6 +7,7 @@ export const theme = {
     white: "#FFFFFF",
     gray: "#FCFCFC",
     lightgray: "#E4DAD7",
+    medgray: "#D9D9D9",
     darkgray: "#898989",
     border: "#E5E7EB",
     green: "#027564",
@@ -20,14 +21,20 @@ export const theme = {
     lg: "24px",
     xl: "32px",
   },
+  // typography: {
+  //   h1: "28px",
+  //   h2: "24px",
+  //   h3: "20px",
+  //   body: "16px",
+  //   small: "14px",
+  // },
   typography: {
-    h1: "28px",
-    h2: "24px",
+    h1: "24px",
+    h2: "22px",
     h3: "20px",
-    body: "16px",
-    small: "14px",
+    body: "14px",
+    small: "12px",
   },
-
   radius: {
     sm: "6px",
     md: "10px",

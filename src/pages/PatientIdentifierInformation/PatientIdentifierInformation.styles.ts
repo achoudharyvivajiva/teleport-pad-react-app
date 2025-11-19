@@ -29,7 +29,7 @@ export const PatientImageWrapper = styled.div`
 
   img {
     width: 100%;
-    height: 224px;
+    height: 200px;
     border-radius: 6px;
     object-fit: cover;
   }
@@ -56,14 +56,14 @@ export const InfoRow = styled.div`
 
   span.label {
     width: 160px;
-    font-size: 18px;
+    font-size: ${({ theme }) => theme.typography.body};
     opacity: 0.8;
     font-weight: ${({ theme }) => theme.weight.normal};
     color: ${({ theme }) => theme.colors.white};
   }
 
   span.value {
-    font-size: 18px;
+    font-size: ${({ theme }) => theme.typography.body};
     font-weight: ${({ theme }) => theme.weight.bold};
     color: ${({ theme }) => theme.colors.white};
   }
@@ -79,23 +79,56 @@ export const AdditionalInfoSection = styled.div`
   display: flex;
   flex-direction: column;
 `;
-export const BottomSection = styled.div`
-  text-align: center;
+
+export const BottomRow = styled.div`
+  margin-top: 20px;
   display: flex;
   justify-content: center;
+  gap: 20px;
+`;
+
+export const TopRow = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+`;
+
+export const StyledDropdown = styled.div`
+  .p-dropdown {
+    width: 180px;
+    height: 45px;
+    padding: 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: ${({ theme }) => theme.colors.secondary};
+    font-size: ${({ theme }) => theme.typography.body};
+    font-weight: ${({ theme }) => theme.weight.bold};
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 0px;
+    background-color: ${({ theme }) => theme.colors.white};
+    border: 1px solid #ffffff;
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
 `;
 
 export const PrimaryButton = styled.button`
-  padding: 15px 25px;
+  padding: 15px;
   border: none;
   border-radius: 4px;
+  height: 45px;
   cursor: pointer;
   color: ${({ theme }) => theme.colors.white};
   font-size: ${({ theme }) => theme.typography.body};
   font-weight: ${({ theme }) => theme.weight.bold};
-  display: flex; /* ✅ make icon + text align */
+  display: flex;
   align-items: center;
-  gap: 10px; /* ✅ spacing between icon & text */
+  gap: 10px;
 
   &:hover {
     opacity: 0.85;
@@ -103,14 +136,17 @@ export const PrimaryButton = styled.button`
 
   background-color: ${({ theme }) => theme.colors.green};
   border: 1px solid #ffffff;
-  margin-right: 20px;
+  margin-right: 10px;
 `;
 
 export const SecondaryButton = styled.button`
-  padding: 15px 25px;
+  padding: 15px 20px;
+  width: 180px;
+  height: 45px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  justify-content: center;
   color: ${({ theme }) => theme.colors.white};
   font-size: ${({ theme }) => theme.typography.body};
   font-weight: ${({ theme }) => theme.weight.bold};
@@ -128,19 +164,20 @@ export const SecondaryButton = styled.button`
 `;
 
 export const Icon = styled.img`
-  width: 30px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
 `;
 
 export const FooterSection = styled.div`
   display: flex;
   justify-content: end;
-  margin-top: 150px;
+  margin-top: 130px;
 `;
 export const DeAssociateButton = styled.button`
-  padding: 15px 25px;
+  padding: 15px 20px;
   border: none;
   border-radius: 4px;
+  height: 45px;
   cursor: pointer;
   color: ${({ theme }) => theme.colors.white};
   font-size: ${({ theme }) => theme.typography.body};
@@ -155,4 +192,54 @@ export const DeAssociateButton = styled.button`
 
   background-color: ${({ theme }) => theme.colors.red};
   border: 1px solid #ffffff;
+`;
+
+export const AddButton = styled.button`
+  padding: 15px;
+  border: none;
+  border-radius: 4px;
+  height: 45px;
+  cursor: pointer;
+  color: ${({ theme }) => theme.colors.white};
+  font-size: ${({ theme }) => theme.typography.body};
+  font-weight: ${({ theme }) => theme.weight.bold};
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 20px;
+  &:hover {
+    opacity: 0.85;
+  }
+
+  background-color: ${({ theme }) => theme.colors.secondary};
+  border: 1px solid #ffffff;
+  margin-right: 20px;
+`;
+
+export const CloseButton = styled.button`
+  padding: 15px 15px;
+  border: none;
+  border-radius: 4px;
+  height: 45px;
+  cursor: pointer;
+  color: ${({ theme }) => theme.colors.white};
+  font-size: ${({ theme }) => theme.typography.body};
+  font-weight: ${({ theme }) => theme.weight.bold};
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  background-color: ${({ theme }) => theme.colors.red};
+  border: 1px solid #ffffff;
+`;
+export const ButtonsContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 40px;
+  margin-left: 300px;
 `;

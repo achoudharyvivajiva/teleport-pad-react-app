@@ -25,5 +25,33 @@ export const GlobalStyles = createGlobalStyle`
     body, p { font-size: 14px; }
     small { font-size: 13px; }
   }
+  .pointer{
+cursor: pointer;
+}
   
+  /* PRIME REACT DROPDOWN PANEL FIX */
+  .p-dropdown-panel {
+    background-color: ${({ theme }) => theme.colors.white} !important;
+    border-radius: 6px !important;
+    border: 1px solid #ddd !important;
+  }
+
+  .p-dropdown-items-wrapper {
+    background-color: ${({ theme }) => theme.colors.white} !important;
+  }
+
+  .p-dropdown-items {
+    background-color: ${({ theme }) => theme.colors.white} !important;
+    margin: 20px;
+  }
+
+  .p-dropdown-item {
+    color: ${({ theme }) => theme.colors.black} !important;
+    margin: 20px 0px;
+
+  }
+
+  .p-dropdown-item:hover {
+    background-color: ${({ theme }) => theme.colors.lightgray} !important;
+  }
 `;
