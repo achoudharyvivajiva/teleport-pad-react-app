@@ -51,31 +51,19 @@ import peopleIcon from "../../assets/icons/people.png";
 import inviteIcon from "../../assets/icons/invite.svg";
 import tickIcon from "../../assets/icons/tick.png";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { formatTime } from "../../utils/utils";
 import { useNavigate, useParams } from "react-router-dom";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { errorMessage } from "../../utils/toasters";
 import toast from "react-hot-toast";
-// Modal.setAppElement("#root"); // important
-type Inputs = {
-  id: number;
-  name: string;
-  relation: string;
-  mobile: number;
-  email: string;
-};
-type friendAndFamilyTypes = {
-  id: number;
-  name: string;
-  relation: string;
-  mobile: string;
-  email: string;
-  checked: boolean;
-  inviteTime?: string;
-};
+import type { MemberFormInputType, MembersType } from "../../types/members";
+import { useAppDispatch } from "../../store/hooks";
+import { membersActions } from "../../store/features/members/membersSlice";
+
 export const FamilyAndFriend = () => {
-  const natvigate = useNavigate();
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
   const { id } = useParams();
   const {
     register,
@@ -83,31 +71,31 @@ export const FamilyAndFriend = () => {
     clearErrors,
     reset,
     formState: { errors },
-  } = useForm<Inputs>();
+  } = useForm<MemberFormInputType>();
   const [showModel, setShowModel] = useState<boolean>(false);
   const [showInvitationView, setShowInvitationView] = useState<boolean>(false);
-  const [friendAndFamilyData, setFriendAndFamilyData] = useState<
-    friendAndFamilyTypes[]
-  >([
-    {
-      id: 1,
-      name: "Simon",
-      relation: "Father",
-      mobile: "638 - 733 - 839",
-      email: "name.surename@domain.com",
-      checked: false,
-    },
-    {
-      id: 2,
-      name: "Daniel Lawrence",
-      relation: "Friend",
-      mobile: "638 - 733 - 839",
-      email: "name.surename@domain.com",
-      checked: false,
-    },
-  ]);
+  const [friendAndFamilyData, setFriendAndFamilyData] = useState<MembersType[]>(
+    [
+      {
+        id: 1,
+        name: "Simon",
+        relation: "Father",
+        mobile: "638 - 733 - 839",
+        email: "name.surename@domain.com",
+        checked: false,
+      },
+      {
+        id: 2,
+        name: "Daniel Lawrence",
+        relation: "Friend",
+        mobile: "638 - 733 - 839",
+        email: "name.surename@domain.com",
+        checked: false,
+      },
+    ]
+  );
 
-  const handleAddMember: SubmitHandler<Inputs> = (data) => {
+  const handleAddMember: SubmitHandler<MemberFormInputType> = (data) => {
     setShowModel(false);
     reset();
     const memberId = friendAndFamilyData.length;
@@ -134,6 +122,7 @@ export const FamilyAndFriend = () => {
     const filterCheckedMembers = friendAndFamilyData.filter(
       (mem) => mem.checked === true
     );
+    dispatch(membersActions.handleInvitedMembers(filterCheckedMembers));
 
     if (filterCheckedMembers?.length) {
       toast.dismiss();
@@ -144,11 +133,23 @@ export const FamilyAndFriend = () => {
   };
   const handleCancel = () => {
     if (!showInvitationView) {
-      natvigate(`/patient-identifier-information/${id}}`);
+      console.log(id);
+
+      navigate(`/patient-identifier-information/${id}`);
     } else {
       setShowInvitationView(false);
     }
   };
+
+  useEffect(() => {
+    if (showInvitationView) {
+      const timer = setTimeout(() => {
+        navigate(`/${id}/connecting`);
+      }, 4000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [showInvitationView, navigate, id]);
 
   return (
     <Container>

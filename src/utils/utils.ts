@@ -20,3 +20,11 @@ export function formatTime(date: Date): string {
     minute: "2-digit",
   });
 }
+
+export function formatUsername(username: string) {
+  if (username.length > 14) {
+    return username.slice(0, 14) + "...";
+  } else {
+    return username;
+  }
+}

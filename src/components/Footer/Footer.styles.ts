@@ -18,6 +18,39 @@ export const LeftSection = styled.div`
   gap: 20px;
 `;
 
+export const MidSection = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: center;
+`;
+
+export const MenuBar = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+`;
+
+export const MenuItem = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+`;
+
+export const MenuLabel = styled.span`
+  font-size: ${({ theme }) => theme.typography.body};
+  font-weight: ${({ theme }) => theme.weight.bold};
+  color: #e2e2e2;
+`;
+
+export const MenuIcon = styled.img`
+  width: 22px;
+  height: 18px;
+`;
+
 export const SunIcon = styled.img`
   width: 23px;
   height: 23px;
@@ -55,4 +88,24 @@ export const RightSection = styled.div`
 export const BatteryIcon = styled.img`
   width: 25px;
   height: 12px;
+`;
+export const EndButton = styled.button`
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  justify-content: center;
+  color: ${({ theme }) => theme.colors.white};
+  font-size: ${({ theme }) => theme.typography.body};
+  font-weight: ${({ theme }) => theme.weight.bold};
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  background-color: ${({ theme }) => theme.colors.red};
+  margin-right: 0px;
+  box-shadow: 0px 2px 4px 0px #0000001a;
 `;
