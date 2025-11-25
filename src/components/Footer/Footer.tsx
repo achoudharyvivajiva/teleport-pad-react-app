@@ -17,7 +17,7 @@ import batteryIcon from "../../assets/icons/vector.png";
 import { useEffect, useState } from "react";
 import { Device } from "@capacitor/device";
 import { ScreenBrightness } from "@capacitor-community/screen-brightness";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import videoIcon from "../../assets/icons/video.png";
 import microphoneIcon from "../../assets/icons/Microphonewhite.png";
 import flipCameraIcon from "../../assets/icons/flipcamera.png";

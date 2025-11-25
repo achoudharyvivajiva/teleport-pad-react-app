@@ -7,48 +7,35 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  body {
-    /* font-family: "Helvetica", "Arial", sans-serif; */
-    font-family: "Helvetica";
+  html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: "Helvetica", sans-serif;
     color: ${({ theme }) => theme.colors.text};
-  }
-  h1 { font-size: ${({ theme }) => theme.typography.h1}; }
-  h2 { font-size: ${({ theme }) => theme.typography.h2}; }
-  h3 { font-size: ${({ theme }) => theme.typography.h3}; }
-  body, p { font-size: ${({ theme }) => theme.typography.body}; }
-  small { font-size: ${({ theme }) => theme.typography.small}; }
-
-  @media screen and (max-width: 1024px) {
-    h1 { font-size: 24px; }
-    h2 { font-size: 20px; }
-    h3 { font-size: 18px; }
-    body, p { font-size: 14px; }
-    small { font-size: 13px; }
-  }
-  .pointer{
-cursor: pointer;
-}
-  
-  /* PRIME REACT DROPDOWN PANEL FIX */
-  .p-dropdown-panel {
-    background-color: ${({ theme }) => theme.colors.white} !important;
-    border-radius: 6px !important;
-    border: 1px solid #ddd !important;
+    -webkit-text-size-adjust: 100%;
   }
 
-  .p-dropdown-items-wrapper {
-    background-color: ${({ theme }) => theme.colors.white} !important;
-  }
+  /* RESPONSIVE TYPOGRAPHY */
+  h1 { font-size: clamp(22px, 3vw, 40px); }
+  h2 { font-size: clamp(20px, 2.6vw, 34px); }
+  h3 { font-size: clamp(18px, 2.2vw, 28px); }
+  p, body { font-size: clamp(14px, 1.8vw, 22px); }
+  small { font-size: clamp(12px, 1.4vw, 18px); }
 
-  .p-dropdown-items {
+  .pointer { cursor: pointer; }
+  .hidden { display: none; }
+
+  /* Prime React Dropdown Fix */
+  .p-dropdown-panel,
+  .p-dropdown-items,
+  .p-dropdown-item {
     background-color: ${({ theme }) => theme.colors.white} !important;
-    margin: 20px;
   }
 
   .p-dropdown-item {
     color: ${({ theme }) => theme.colors.black} !important;
-    margin: 20px 0px;
-
+    padding: 1vh 1vw !important;
   }
 
   .p-dropdown-item:hover {

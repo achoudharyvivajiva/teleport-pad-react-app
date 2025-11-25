@@ -22,8 +22,8 @@ export function formatTime(date: Date): string {
 }
 
 export function formatUsername(username: string) {
-  if (username.length > 14) {
-    return username.slice(0, 14) + "...";
+  if (username.length > 12) {
+    return username.slice(0, 12) + "...";
   } else {
     return username;
   }

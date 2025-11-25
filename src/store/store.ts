@@ -1,12 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { scanReducer } from "./features/scan/scanSlice";
 import { membersReducer } from "./features/members/membersSlice";
-// ...
+import { globalReducer } from "./features/global/globalSlice";
 
 export const store = configureStore({
   reducer: {
     scan: scanReducer,
     members: membersReducer,
+    global: globalReducer,
   },
 });
 
