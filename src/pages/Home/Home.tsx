@@ -15,8 +15,6 @@ import {
   FooterUpperContent,
   FooterLowerContent,
   FooterContent,
-  PrimaryButton,
-  SecondaryButton,
   HeaderMainHeading,
   HeaderMainPara,
   FormLabel,
@@ -27,7 +25,7 @@ import {
   ScannerBox,
   FooterLeftImg,
 } from "./Home.styles";
-import { Container } from "../../components";
+import { Button, Container } from "../../components";
 import { Scanner } from "@yudiel/react-qr-scanner";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -63,7 +61,9 @@ const Home = () => {
             </HeaderMainPara>
           </HeaderMid>
           <HeaderRight>
-            <SecondaryButton>Need Help?</SecondaryButton>
+            <Button bgcolor="#027564" color="#FFFFFF">
+              Need Help?
+            </Button>
           </HeaderRight>
         </HeaderSection>
 
@@ -111,12 +111,17 @@ const Home = () => {
         </FormSection>
 
         <BottomSection>
-          <PrimaryButton
+          <Button
+            bgcolor="#027564"
+            color="#FFFFFF"
+            iconWidth={24}
+            iconHeight={16}
+            border="1px solid #ffffff"
             onClick={() => handleAssociateDevice()}
             disabled={idBandNumber?.toString().length === 10 ? false : true}
           >
             Associate Device
-          </PrimaryButton>
+          </Button>
         </BottomSection>
 
         <FooterSection>

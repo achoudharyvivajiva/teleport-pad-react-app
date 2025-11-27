@@ -117,81 +117,21 @@ export const StyledDropdown = styled.div`
   }
 `;
 
-export const PrimaryButton = styled.button`
-  padding: 15px;
-  border: none;
-  border-radius: 4px;
-  height: 45px;
-  cursor: pointer;
-  color: ${({ theme }) => theme.colors.white};
-  font-size: ${({ theme }) => theme.typography.body};
-  font-weight: ${({ theme }) => theme.weight.bold};
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-  &:hover {
-    opacity: 0.85;
-  }
-
-  background-color: ${({ theme }) => theme.colors.green};
-  border: 1px solid #ffffff;
-  margin-right: 10px;
-`;
-
-export const SecondaryButton = styled.button`
-  padding: 15px 20px;
-  width: 180px;
-  height: 45px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  justify-content: center;
-  color: ${({ theme }) => theme.colors.white};
-  font-size: ${({ theme }) => theme.typography.body};
-  font-weight: ${({ theme }) => theme.weight.bold};
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-  &:hover {
-    opacity: 0.85;
-  }
-
-  background-color: ${({ theme }) => theme.colors.secondary};
-  border: 1px solid #ffffff;
-  margin-right: 0px;
-`;
-
-export const Icon = styled.img`
-  width: 15px;
-  height: 15px;
+export const Icon = styled.img.attrs<{
+  width: number;
+  height: number;
+}>((props) => ({
+  width: props.width || 0,
+  height: props.height || 0,
+}))`
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
 `;
 
 export const FooterSection = styled.div`
   display: flex;
   justify-content: end;
   margin-top: 130px;
-`;
-export const DeAssociateButton = styled.button`
-  padding: 15px 20px;
-  border: none;
-  border-radius: 4px;
-  height: 45px;
-  cursor: pointer;
-  color: ${({ theme }) => theme.colors.white};
-  font-size: ${({ theme }) => theme.typography.body};
-  font-weight: ${({ theme }) => theme.weight.bold};
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-  &:hover {
-    opacity: 0.85;
-  }
-
-  background-color: ${({ theme }) => theme.colors.red};
-  border: 1px solid #ffffff;
 `;
 
 export const AddButton = styled.button`
@@ -239,7 +179,7 @@ export const CloseButton = styled.button`
 export const ButtonsContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 10px;
   margin-top: 40px;
   margin-left: 300px;
 `;

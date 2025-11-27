@@ -14,32 +14,29 @@ export const theme = {
     red: "#D42A2A",
     black: "#000000",
   },
+
   spacing: {
-    xs: "4px",
-    sm: "8px",
-    md: "16px",
-    lg: "24px",
-    xl: "32px",
+    xs: "clamp(4px, 0.6vw, 8px)",
+    sm: "clamp(8px, 1.2vw, 12px)",
+    md: "clamp(12px, 1.8vw, 18px)",
+    lg: "clamp(18px, 2.4vw, 28px)",
+    xl: "clamp(28px, 3vw, 40px)",
   },
-  // typography: {
-  //   h1: "28px",
-  //   h2: "24px",
-  //   h3: "20px",
-  //   body: "16px",
-  //   small: "14px",
-  // },
+
   typography: {
-    h1: "24px",
-    h2: "22px",
-    h3: "20px",
-    body: "14px",
-    small: "12px",
+    h1: "clamp(24px, 3vw, 28px)",
+    h2: "clamp(20px, 2.5vw, 24px)",
+    h3: "clamp(16px, 2vw, 20px)",
+    body: "clamp(10px, 1.7vw, 14px)",
+    small: "clamp(8px, 1.3vw, 16px)",
   },
+
   radius: {
-    sm: "6px",
-    md: "10px",
-    lg: "16px",
+    sm: "8px",
+    md: "14px",
+    lg: "20px",
   },
+
   weight: {
     thin: 100,
     extralight: 200,

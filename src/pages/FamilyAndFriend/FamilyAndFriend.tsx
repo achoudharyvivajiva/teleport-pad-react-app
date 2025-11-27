@@ -1,5 +1,5 @@
 "use client";
-import { Container } from "../../components";
+import { Button, Container } from "../../components";
 import {
   AddNewButton,
   BodyCell,
@@ -33,11 +33,8 @@ import {
   ModelHeader,
   ModelHeaderTitle,
   ModelPrimaryButton,
-  MoreInfoButton,
   PageWrapper,
   Paragraph,
-  PrimaryButton,
-  SecondaryButton,
   StepSection,
   StepSpan,
   StyledTable,
@@ -170,7 +167,15 @@ export const FamilyAndFriend = () => {
     const filterCheckedMembers = friendAndFamilyData.filter(
       (mem) => mem.checked === true
     );
-    dispatch(membersActions.handleInvitedMembers(filterCheckedMembers));
+    const filterUnCheckedMembers = friendAndFamilyData.filter(
+      (mem) => mem.checked === false
+    );
+    dispatch(
+      membersActions.handleInvitedMembers({
+        invitedMembers: filterCheckedMembers,
+        unInvitedMembers: filterUnCheckedMembers,
+      })
+    );
 
     if (filterCheckedMembers?.length) {
       toast.dismiss();
@@ -181,8 +186,6 @@ export const FamilyAndFriend = () => {
   };
   const handleCancel = () => {
     if (!showInvitationView) {
-      console.log(id);
-
       navigate(`/patient-identifier-information/${id}`);
     } else {
       setShowInvitationView(false);
@@ -206,12 +209,21 @@ export const FamilyAndFriend = () => {
           <HeaderLeft />
           <HeaderMid>
             <HeaderMainHeading>
-              <Icon src={peopleIcon} alt="people" />
+              <Icon src={peopleIcon} alt="people" height={24} width={36} />
               Connect with Family or Friends
             </HeaderMainHeading>
           </HeaderMid>
           <HeaderRight>
-            <MoreInfoButton>More Info !</MoreInfoButton>
+            <Button
+              bgcolor="#05324E"
+              color="#FFFFFF"
+              hasIcon
+              iconWidth={24}
+              iconHeight={20}
+              border="1px solid #ffffff"
+            >
+              More Info !
+            </Button>
           </HeaderRight>
         </HeaderSection>
         <BodySection>
@@ -334,13 +346,32 @@ export const FamilyAndFriend = () => {
         </BodySection>
         <FooterSection>
           {!showInvitationView && (
-            <PrimaryButton onClick={handleSendInvitation}>
-              <Icon src={inviteIcon} alt="people" />
+            <Button
+              bgcolor="#027564"
+              color="#FFFFFF"
+              hasIcon
+              iconWidth={20}
+              iconHeight={20}
+              src={inviteIcon}
+              border="1px solid #ffffff"
+              padding="15px 20px"
+              width="220px"
+              onClick={handleSendInvitation}
+            >
               Send Invitation
-            </PrimaryButton>
+            </Button>
           )}
-
-          <SecondaryButton onClick={handleCancel}>Cancel</SecondaryButton>
+          <Button
+            bgcolor="#D42A2A"
+            color="#FFFFFF"
+            hasIcon
+            border="1px solid #ffffff"
+            padding="15px 20px"
+            width="220px"
+            onClick={handleCancel}
+          >
+            Cancel
+          </Button>
         </FooterSection>
         <Modal
           isOpen={showModel}
@@ -356,9 +387,11 @@ export const FamilyAndFriend = () => {
               borderRadius: "4px",
               padding: "0px",
               border: "none",
+              zIndex: 1000,
             },
             overlay: {
               background: "#0A0A0AC7",
+              zIndex: 999,
             },
           }}
         >

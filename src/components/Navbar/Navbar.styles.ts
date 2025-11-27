@@ -41,13 +41,19 @@ export const MenuItem = styled.div`
 `;
 
 export const MenuLabel = styled.span`
-  font-size: clamp(12px, 1.6vw, 20px);
+  font-size: ${({ theme }) => theme.typography.body};
   font-weight: ${({ theme }) => theme.weight.bold};
   color: #e2e2e2;
 `;
 
-export const MenuIcon = styled.img`
-  width: clamp(18px, 2.5vw, 32px);
-  height: clamp(16px, 2.2vw, 28px);
+export const MenuIcon = styled.img.attrs<{
+  width: number;
+  height: number;
+}>((props) => ({
+  width: props.width || 0,
+  height: props.height || 0,
+}))`
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
   object-fit: contain;
 `;

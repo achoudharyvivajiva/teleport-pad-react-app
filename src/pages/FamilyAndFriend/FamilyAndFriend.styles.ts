@@ -60,7 +60,7 @@ export const StepSpan = styled.span`
   border-bottom: 1px solid white;
   color: ${({ theme }) => theme.colors.white};
   border-bottom: 1px solid white;
-  font-size: ${({ theme }) => theme.typography.h1};
+  font-size: ${({ theme }) => theme.typography.h3};
 `;
 export const TableContainer = styled.div`
   width: 100%;
@@ -90,7 +90,11 @@ export const HeadRow = styled.tr`
 
 export const HeadCell = styled.th`
   padding: 16px 20px;
-  color: white;
+  color: ${({ theme }) => theme.colors.white};
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: #d9d9d926;
 `;
 
 export const BodyRow = styled.tr`
@@ -184,21 +188,6 @@ export const Paragraph = styled.p`
   font-size: ${({ theme }) => theme.typography.h3};
 `;
 
-export const MoreInfoButton = styled.button`
-  padding: 15px 20px;
-  height: 45px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  color: ${({ theme }) => theme.colors.white};
-  font-size: ${({ theme }) => theme.typography.body};
-  font-weight: ${({ theme }) => theme.weight.bold};
-  &:hover {
-    opacity: 0.85;
-  }
-  background-color: ${({ theme }) => theme.colors.secondary};
-  border: 1px solid #ffffff;
-`;
 export const AddNewButton = styled.button`
   padding: 5px;
   width: 120px;
@@ -216,56 +205,16 @@ export const AddNewButton = styled.button`
   background-color: ${({ theme }) => theme.colors.white};
   border: 1px solid #ffffff;
 `;
-export const PrimaryButton = styled.button`
-  padding: 15px 20px;
-  border: none;
-  width: 220px;
-  height: 45px;
-  border-radius: 4px;
-  cursor: pointer;
-  color: ${({ theme }) => theme.colors.white};
-  font-size: ${({ theme }) => theme.typography.body};
-  font-weight: ${({ theme }) => theme.weight.bold};
-  display: flex;
-  align-items: center;
-  gap: 10px;
 
-  &:hover {
-    opacity: 0.85;
-  }
-
-  background-color: ${({ theme }) => theme.colors.green};
-  border: 1px solid #ffffff;
-  margin-right: 20px;
-`;
-
-export const SecondaryButton = styled.button`
-  padding: 15px 20px;
-  width: 220px;
-  height: 45px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  justify-content: center;
-  color: ${({ theme }) => theme.colors.white};
-  font-size: ${({ theme }) => theme.typography.body};
-  font-weight: ${({ theme }) => theme.weight.bold};
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-  &:hover {
-    opacity: 0.85;
-  }
-
-  background-color: ${({ theme }) => theme.colors.red};
-  border: 1px solid #ffffff;
-  margin-right: 0px;
-`;
-
-export const Icon = styled.img`
-  width: 30px;
-  height: 20px;
+export const Icon = styled.img.attrs<{
+  width: number;
+  height: number;
+}>((props) => ({
+  width: props.width || 0,
+  height: props.height || 0,
+}))`
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
   margin-right: 10px;
 `;
 
@@ -274,6 +223,7 @@ export const FooterSection = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+  gap: 20px;
 `;
 
 export const ModelHeader = styled.div`

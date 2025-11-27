@@ -1,12 +1,13 @@
 import styled from "styled-components";
 export const MainStage = styled.div`
-  flex: 1;
   display: flex;
   height: 80vh;
+  width: 100%;
 `;
 
 export const LeftPanel = styled.div`
-  width: 25%;
+  flex-basis: 25%;
+  max-width: 25%;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -16,15 +17,16 @@ export const LeftPanel = styled.div`
 
 export const RightPanel = styled.div`
   flex: 1;
-  width: 100%;
 `;
 export const ChatAndParticipantsPanel = styled.div`
-  flex: 1;
-  width: 15%;
+  flex-basis: 30%;
+  max-width: 30%;
   background: ${({ theme }) => theme.colors.white};
+  height: 100%;
 `;
+
 export const MainVideoBox = styled.div`
-  height: 580px;
+  height: 95%;
   background: #000;
   border-radius: 6px;
   position: relative;

@@ -45,21 +45,26 @@ const Navbar = () => {
       {currentRoute === "video-call" ? (
         <MenuBar>
           <MenuItem onClick={() => handleShowPanel("participants")}>
-            <MenuIcon src={participantIcon} alt="participant" />
+            <MenuIcon
+              src={participantIcon}
+              alt="participant"
+              width={30}
+              height={20}
+            />
             <MenuLabel>Participants</MenuLabel>
           </MenuItem>
           <MenuItem onClick={() => handleShowPanel("chat")}>
-            <MenuIcon src={chatIcon} alt="chat" />
+            <MenuIcon src={chatIcon} alt="chat" width={20} height={20} />
             <MenuLabel>Chats</MenuLabel>
           </MenuItem>
           <MenuItem onClick={handleLayout}>
-            <MenuIcon src={layoutIcon} alt="layout" />
+            <MenuIcon src={layoutIcon} alt="layout" width={20} height={20} />
             <MenuLabel>Layout</MenuLabel>
           </MenuItem>
           <MenuItem
             onClick={() => dispatch(globalActions.handleShowUploadModel(true))}
           >
-            <MenuIcon src={uploadIcon} alt="upload" />
+            <MenuIcon src={uploadIcon} alt="upload" width={20} height={20} />
             <MenuLabel>Upload</MenuLabel>
           </MenuItem>
         </MenuBar>

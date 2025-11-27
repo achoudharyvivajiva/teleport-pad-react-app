@@ -1,8 +1,29 @@
 import styled from "styled-components";
+export const MainStage = styled.div`
+  flex: 1;
+  display: flex;
+  height: 80vh;
+  width: 100%;
+`;
 
+export const LeftPanel = styled.div.attrs<{
+  width: string;
+}>((props) => ({
+  width: props.width || "",
+}))`
+  width: ${(props) => props.width};
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 10px;
+  overflow-y: scroll;
+`;
+export const RightPanel = styled.div`
+  flex: 1;
+  width: 100%;
+`;
 export const VideoContanier = styled.div<{ count: number }>`
   width: 100%;
-  /* height: 100%; */
   display: grid;
   gap: 12px;
   ${({ count }) =>

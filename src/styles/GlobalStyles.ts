@@ -7,35 +7,45 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  html, body {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    font-family: "Helvetica", sans-serif;
+  body {
+    /* font-family: "Helvetica", "Arial", sans-serif; */
+    font-family: "Helvetica";
     color: ${({ theme }) => theme.colors.text};
-    -webkit-text-size-adjust: 100%;
+  }
+  h1 { font-size: ${({ theme }) => theme.typography.h1}; }
+  h2 { font-size: ${({ theme }) => theme.typography.h2}; }
+  h3 { font-size: ${({ theme }) => theme.typography.h3}; }
+  body, p { font-size: ${({ theme }) => theme.typography.body}; }
+  small { font-size: ${({ theme }) => theme.typography.small}; }
+
+ 
+  .pointer{
+cursor: pointer;
+}
+.hidden{
+  display: none;
+}
+  
+  /* PRIME REACT DROPDOWN PANEL FIX */
+  .p-dropdown-panel {
+    background-color: ${({ theme }) => theme.colors.white} !important;
+    border-radius: 6px !important;
+    border: 1px solid #ddd !important;
   }
 
-  /* RESPONSIVE TYPOGRAPHY */
-  h1 { font-size: clamp(22px, 3vw, 40px); }
-  h2 { font-size: clamp(20px, 2.6vw, 34px); }
-  h3 { font-size: clamp(18px, 2.2vw, 28px); }
-  p, body { font-size: clamp(14px, 1.8vw, 22px); }
-  small { font-size: clamp(12px, 1.4vw, 18px); }
-
-  .pointer { cursor: pointer; }
-  .hidden { display: none; }
-
-  /* Prime React Dropdown Fix */
-  .p-dropdown-panel,
-  .p-dropdown-items,
-  .p-dropdown-item {
+  .p-dropdown-items-wrapper {
     background-color: ${({ theme }) => theme.colors.white} !important;
+  }
+
+  .p-dropdown-items {
+    background-color: ${({ theme }) => theme.colors.white} !important;
+    margin: 20px;
   }
 
   .p-dropdown-item {
     color: ${({ theme }) => theme.colors.black} !important;
-    padding: 1vh 1vw !important;
+    margin: 20px 0px;
+
   }
 
   .p-dropdown-item:hover {

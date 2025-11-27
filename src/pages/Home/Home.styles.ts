@@ -2,15 +2,19 @@ import styled from "styled-components";
 
 export const PageWrapper = styled.div`
   width: 100%;
-  height: 100%;
-  padding: 0px;
+  display: flex;
+  min-height: 81vh;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0;
   box-sizing: border-box;
+  gap: 10px;
 `;
 
 export const HeaderSection = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: clamp(20px, 3vh, 40px);
+  margin-bottom: ${({ theme }) => theme.spacing.lg};
   width: 100%;
 `;
 
@@ -28,13 +32,12 @@ export const HeaderMid = styled.div`
 `;
 
 export const HeaderMainHeading = styled.h1`
-  font-size: clamp(20px, 2.5vw, 32px);
   font-weight: ${({ theme }) => theme.weight.bold};
-  margin-bottom: clamp(8px, 1vh, 14px);
+  margin-bottom: ${({ theme }) => theme.spacing.sm};
   color: ${({ theme }) => theme.colors.white};
 `;
 export const HeaderMainPara = styled.p`
-  font-size: clamp(14px, 1.8vw, 20px);
+  font-size: ${({ theme }) => theme.typography.body};
   opacity: 0.8;
   font-weight: ${({ theme }) => theme.weight.normal};
   color: ${({ theme }) => theme.colors.gray};
@@ -45,30 +48,16 @@ export const HeaderRight = styled.div`
   display: flex;
   justify-content: flex-end;
 `;
-export const SecondaryButton = styled.button`
-  padding: clamp(12px, 1.8vh, 18px) clamp(16px, 2vw, 24px);
-  height: clamp(40px, 5vh, 50px);
-  background: ${({ theme }) => theme.colors.green};
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  color: ${({ theme }) => theme.colors.white};
-  box-shadow: 0px 2px 6px 0px #00000038;
-  font-weight: ${({ theme }) => theme.weight.bold};
-  font-size: clamp(12px, 1.6vw, 18px);
-  &:hover {
-    opacity: 0.85;
-  }
-`;
+
 export const FormSection = styled.div`
   width: clamp(60%, 65%, 70%);
   margin: 0 auto clamp(30px, 4vh, 50px) auto;
 `;
 export const FormLabel = styled.label`
   display: block;
-  margin-bottom: clamp(8px, 1vh, 12px);
+  margin-bottom: ${({ theme }) => theme.spacing.sm};
   color: ${({ theme }) => theme.colors.lightgray};
-  font-size: clamp(12px, 1.4vw, 16px);
+  font-size: ${({ theme }) => theme.typography.body};
 `;
 export const FormInput = styled.input.attrs({
   type: "number",
@@ -79,7 +68,7 @@ export const FormInput = styled.input.attrs({
   border: none;
   outline: none;
   color: ${({ theme }) => theme.colors.black};
-  font-size: clamp(14px, 1.8vw, 18px);
+  font-size: ${({ theme }) => theme.typography.body};
 
   /* Hide spinner arrows in Chrome, Safari, Edge, Opera */
   &::-webkit-outer-spin-button,
@@ -100,10 +89,10 @@ export const FormInput = styled.input.attrs({
 
 export const FormOR = styled.div`
   text-align: center;
-  margin: clamp(12px, 1.8vh, 18px) 0;
+  margin: ${({ theme }) => theme.spacing.md} 0;
   color: ${({ theme }) => theme.colors.gray};
   font-weight: ${({ theme }) => theme.weight.normal};
-  font-size: clamp(14px, 1.8vw, 18px);
+  font-size: ${({ theme }) => theme.typography.h3};
 `;
 
 export const ScanSection = styled.div`
@@ -111,7 +100,7 @@ export const ScanSection = styled.div`
   /* justify-content: start; */
   align-items: flex-start;
   gap: clamp(24px, 3vw, 48px);
-  margin-bottom: clamp(30px, 4vh, 50px);
+  /* margin-bottom: clamp(30px, 4vh, 50px); */
 `;
 
 export const ScanLogo = styled.img`
@@ -128,20 +117,20 @@ export const ScanRight = styled.div`
 `;
 export const ScanHeading = styled.h3`
   margin: 0;
-  font-size: clamp(18px, 2.2vw, 26px);
 `;
 
 export const ScanPara = styled.h3`
   color: ${({ theme }) => theme.colors.lightgray};
-  font-size: clamp(12px, 1.4vw, 16px);
+  font-size: ${({ theme }) => theme.typography.body};
   opacity: 0.8;
-  margin-bottom: clamp(8px, 1vh, 12px);
+  margin-bottom: ${({ theme }) => theme.spacing.sm};
 `;
 
 export const ScannerBox = styled.div`
   width: 100%;
-  height: clamp(80px, 10vh, 120px);
-  background: repeating-conic-gradient(#444 0% 25%, #777 0% 50%) 50% / clamp(24px, 3vw, 36px) clamp(24px, 3vw, 36px);
+  height: clamp(100px, 10vh, 140px);
+  background: repeating-conic-gradient(#444 0% 25%, #777 0% 50%) 50% /
+    clamp(24px, 3vw, 36px) clamp(24px, 3vw, 36px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -151,28 +140,15 @@ export const ScannerBox = styled.div`
 
 export const BottomSection = styled.div`
   text-align: center;
-`;
-
-export const PrimaryButton = styled.button`
-  padding: clamp(12px, 1.8vh, 18px) clamp(16px, 2vw, 24px);
-  height: clamp(40px, 5vh, 50px);
-  border-radius: 4px;
-  cursor: pointer;
-  color: ${({ theme }) => theme.colors.white};
-  font-size: clamp(14px, 1.8vw, 18px);
-  font-weight: ${({ theme }) => theme.weight.bold};
-  &:hover {
-    opacity: 0.85;
-  }
-  background-color: ${({ theme }) => theme.colors.green};
-  border: 1px solid #ffffff;
+  display: flex;
+  justify-content: center;
 `;
 
 export const FooterSection = styled.div`
-  display: flex;
   width: 100%;
-  height: 100%;
-  margin-top: clamp(16px, 2.5vh, 28px);
+  /* margin-top: auto; */
+  /* padding-top: ${({ theme }) => theme.spacing.xl}; */
+  display: flex;
 `;
 export const FooterLeft = styled.div`
   flex: 1;
@@ -196,8 +172,8 @@ export const FooterContent = styled.div`
 
 export const FooterUpperContent = styled.span`
   color: ${({ theme }) => theme.colors.white};
-  font-size: clamp(18px, 2.2vw, 24px);
-  margin: clamp(8px, 1vh, 12px) 0px;
+  font-size: ${({ theme }) => theme.typography.body};
+  margin: ${({ theme }) => theme.spacing.sm} 0px;
 `;
 export const FooterLowerContent = styled.img`
   height: clamp(45px, 6vh, 75px);

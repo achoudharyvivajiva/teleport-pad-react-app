@@ -97,7 +97,12 @@ const Footer = () => {
         <MidSection>
           <MenuBar>
             <MenuItem onClick={() => setVideo(!video)}>
-              <MenuIcon src={video ? videoIcon : videoOffIcon} alt="video" />
+              <MenuIcon
+                src={video ? videoIcon : videoOffIcon}
+                alt="video"
+                width={20}
+                height={20}
+              />
 
               <MenuLabel>Video</MenuLabel>
             </MenuItem>
@@ -105,11 +110,18 @@ const Footer = () => {
               <MenuIcon
                 src={mic ? microphoneIcon : microphoneMuteIcon}
                 alt="microphone-white"
+                width={20}
+                height={20}
               />
               <MenuLabel>Microphone</MenuLabel>
             </MenuItem>
             <MenuItem>
-              <MenuIcon src={flipCameraIcon} alt="flip camera" />
+              <MenuIcon
+                src={flipCameraIcon}
+                alt="flip camera"
+                width={20}
+                height={20}
+              />
               <MenuLabel>Flip Camera</MenuLabel>
             </MenuItem>
             <MenuItem>

@@ -46,11 +46,17 @@ export const MenuLabel = styled.span`
   color: #e2e2e2;
 `;
 
-export const MenuIcon = styled.img`
-  width: 22px;
-  height: 18px;
+export const MenuIcon = styled.img.attrs<{
+  width: number;
+  height: number;
+}>((props) => ({
+  width: props.width || 0,
+  height: props.height || 0,
+}))`
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
+  object-fit: contain;
 `;
-
 export const SunIcon = styled.img`
   width: 23px;
   height: 23px;

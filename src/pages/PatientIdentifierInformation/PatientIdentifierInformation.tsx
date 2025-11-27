@@ -1,12 +1,11 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { Container } from "../../components";
+import { Button, Container } from "../../components";
 import {
   AddButton,
   AdditionalInfoSection,
   BasicInfoSection,
   ButtonsContainer,
   CloseButton,
-  DeAssociateButton,
   Divider,
   FooterSection,
   HeaderSection,
@@ -15,8 +14,6 @@ import {
   PageWrapper,
   PatientIdentifierInformationSection,
   PatientImageWrapper,
-  PrimaryButton,
-  SecondaryButton,
   SectionTitle,
   StyledDropdown,
 } from "./PatientIdentifierInformation.styles";
@@ -91,10 +88,18 @@ export const PatientIdentifierInformation = () => {
         </PatientIdentifierInformationSection>
 
         <ButtonsContainer>
-          <PrimaryButton onClick={() => navigate(`/${id}/family-and-friend`)}>
-            <Icon src={peopleIcon} alt="people" />
+          <Button
+            bgcolor="#027564"
+            color="#FFFFFF"
+            hasIcon
+            iconWidth={24}
+            iconHeight={16}
+            src={peopleIcon}
+            border="1px solid #ffffff"
+            onClick={() => navigate(`/${id}/family-and-friend`)}
+          >
             Connect with Family or Friends
-          </PrimaryButton>
+          </Button>
 
           {showLanguageDropdown ? (
             <>
@@ -109,7 +114,7 @@ export const PatientIdentifierInformation = () => {
               </StyledDropdown>
 
               <AddButton>
-                <Icon src={telephoneIcon} alt="people" />
+                <Icon src={telephoneIcon} alt="people" width={20} height={18} />
                 Add
               </AddButton>
 
@@ -118,17 +123,30 @@ export const PatientIdentifierInformation = () => {
               </CloseButton>
             </>
           ) : (
-            <SecondaryButton onClick={() => setShowLanguageDropdown(true)}>
-              <Icon src={interIcon} alt="inter icon" />
+            <Button
+              bgcolor="#05324E"
+              color="#FFFFFF"
+              hasIcon
+              iconWidth={24}
+              iconHeight={20}
+              src={interIcon}
+              border="1px solid #ffffff"
+              onClick={() => setShowLanguageDropdown(true)}
+            >
               Add Interpreter
-            </SecondaryButton>
+            </Button>
           )}
         </ButtonsContainer>
 
         <FooterSection>
-          <DeAssociateButton onClick={() => navigate("/")}>
+          <Button
+            bgcolor="#D42A2A"
+            color="#FFFFFF"
+            border="1px solid #ffffff"
+            onClick={() => navigate("/")}
+          >
             De-associate Device With this Patient
-          </DeAssociateButton>
+          </Button>
         </FooterSection>
       </PageWrapper>
     </Container>

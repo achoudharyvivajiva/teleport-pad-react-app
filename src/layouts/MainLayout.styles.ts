@@ -19,12 +19,12 @@ export const IpadContainer = styled.div`
   .content {
     flex: 1;
     overflow-y: auto;
-    padding: 1.5vh 1.5vw;
+    padding: 1.5vh 1.5vh 0px 1.5vw;
   }
 `;
 
 export const Content = styled.div`
   flex: 1;
   overflow-y: auto;
-  padding: 1.5vh 1.5vw;
+  /* padding: 1.5vh 1.5vw; */
 `;
