@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const IpadContainer = styled.div`
   width: 100%;
-  height: 100dvh; /* dynamic viewport height — works on all iPads */
+  height: 100vh; /* dynamic viewport height — works on all iPads */
   margin: 0 auto;
 
   background: ${({ theme }) => theme.colors.background};

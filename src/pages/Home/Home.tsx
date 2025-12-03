@@ -31,8 +31,10 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import type { IDetectedBarcode } from "../../types/scanner";
 import scanLogo from "../../assets/img/scan.png";
-import ipadScan from "../../assets/img/ipad.png";
+import ipadScan from "../../assets/img/home-vector2.png";
 import testCode from "../../assets/img/testcode.png";
+import { errorMessage } from "../../utils/toasters";
+import toast from "react-hot-toast";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -43,6 +45,8 @@ const Home = () => {
     if (idBandNumber && idLength === 10) {
       navigate(`/patient-identifier-information/5080483241`);
     } else {
+      toast.dismiss();
+      errorMessage("Please enter ID Band Number or Scan the band!");
     }
   };
 
@@ -118,7 +122,7 @@ const Home = () => {
             iconHeight={16}
             border="1px solid #ffffff"
             onClick={() => handleAssociateDevice()}
-            disabled={idBandNumber?.toString().length === 10 ? false : true}
+            // disabled={idBandNumber?.toString().length === 10 ? false : true}
           >
             Associate Device
           </Button>

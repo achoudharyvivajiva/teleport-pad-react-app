@@ -6,6 +6,10 @@ import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import {
   AddNewParticipantsContainer,
   ButtonContainer,
+  ChatBoxContainer,
+  ChatInfo,
+  ChatInfoHeading,
+  ChatInfoPara,
   CloseButton,
   Container,
   HeaderLeft,
@@ -14,6 +18,7 @@ import {
   HeaderSection,
   Icon,
   Input,
+  MessageContanier,
   MicroPhoneIcon,
   NumberInput,
   ParticipantInfo,
@@ -22,6 +27,9 @@ import {
   ParticipantRight,
   ParticipantsList,
   SelectParticipantsContainer,
+  SendButton,
+  SendImage,
+  SendMessageTextArea,
   StyledDropdown,
   VideoIcon,
 } from "./ChatAndParticipants.styles";
@@ -31,6 +39,8 @@ import microPhoneIcon from "../../assets/icons/primary/Microphone.png";
 import videoIcon from "../../assets/icons/primary/video.png";
 import addUserIcon from "../../assets/icons/Add User.png";
 import telephoneIcon from "../../assets/icons/telephone.png";
+import SendIcon from "../../assets/icons/white/send.png";
+
 import {
   selectCallType,
   selectInvitedMembers,
@@ -40,6 +50,7 @@ import Button from "../Button/Button";
 import { useState } from "react";
 import { AddButton } from "../../pages/PatientIdentifierInformation/PatientIdentifierInformation.styles";
 import { Dropdown } from "primereact/dropdown";
+
 export const ChatAndParticipants = () => {
   const dispatch = useAppDispatch();
   const callType = useAppSelector(selectCallType);
@@ -114,7 +125,7 @@ export const ChatAndParticipants = () => {
                           ? "1px solid #E73535"
                           : "1px solid #0E4B71"
                       }
-                      width="75px"
+                      width="65px"
                       onClick={() =>
                         setAddExternalParticipants(!addExternalParticipants)
                       }
@@ -126,7 +137,7 @@ export const ChatAndParticipants = () => {
                   {addExternalParticipants && (
                     <AddNewParticipantsContainer>
                       <Input placeholder="Name of Participant" />
-                      <NumberInput placeholder="443-222-222" />
+                      <NumberInput placeholder="443-222-222" type="number" />
                     </AddNewParticipantsContainer>
                   )}
                   <ButtonContainer>
@@ -176,7 +187,23 @@ export const ChatAndParticipants = () => {
           })}
         </ParticipantsList>
       ) : (
-        ""
+        <>
+          <ChatBoxContainer>
+            <ChatInfo>
+              <ChatInfoHeading>Start a Conversation </ChatInfoHeading>
+              <ChatInfoPara>
+                Connect with the participant, share key points and get data
+                update
+              </ChatInfoPara>
+            </ChatInfo>
+          </ChatBoxContainer>
+          <MessageContanier>
+            <SendMessageTextArea placeholder="Write a message......"></SendMessageTextArea>
+            <SendButton>
+              <SendImage src={SendIcon} alt="send message" />
+            </SendButton>
+          </MessageContanier>
+        </>
       )}
     </Container>
   );

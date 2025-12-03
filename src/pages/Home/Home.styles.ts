@@ -81,9 +81,10 @@ export const FormInput = styled.input.attrs({
   &[type="number"] {
     -moz-appearance: textfield;
   }
+
   &:focus {
-    border-color: ${({ theme }) => theme.colors.secondary};
-    box-shadow: 0 0 5px ${({ theme }) => theme.colors.secondary};
+    border-color: ${({ theme }) => theme.colors.white};
+    box-shadow: 0 0 5px ${({ theme }) => theme.colors.white};
   }
 `;
 
@@ -177,6 +178,5 @@ export const FooterUpperContent = styled.span`
 `;
 export const FooterLowerContent = styled.img`
   height: clamp(45px, 6vh, 75px);
-  width: 100%;
   object-fit: contain;
 `;

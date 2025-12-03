@@ -24,7 +24,8 @@ export const theme = {
   },
 
   typography: {
-    h1: "clamp(24px, 3vw, 28px)",
+    // h1: "clamp(24px, 3vw, 28px)",
+    h1: "clamp(1.25rem, 1.1397rem + 0.5882vw, 1.875rem)",
     h2: "clamp(20px, 2.5vw, 24px)",
     h3: "clamp(16px, 2vw, 20px)",
     body: "clamp(10px, 1.7vw, 14px)",

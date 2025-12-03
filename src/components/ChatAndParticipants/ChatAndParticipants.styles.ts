@@ -4,6 +4,7 @@ export const Container = styled.div`
   margin: 20px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 20px;
   height: 75vh;
 `;
@@ -95,6 +96,66 @@ export const ParticipantRight = styled.div`
   margin: 0px 10px;
 `;
 
+export const ChatBoxContainer = styled.div``;
+export const ChatInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+`;
+export const ChatInfoHeading = styled.span`
+  font-size: ${({ theme }) => theme.typography.h2};
+  font-weight: ${({ theme }) => theme.weight.bold};
+  color: ${({ theme }) => theme.colors.primary};
+`;
+export const ChatInfoPara = styled.span`
+  color: ${({ theme }) => theme.colors.darkgray};
+  font-weight: ${({ theme }) => theme.weight.light};
+`;
+
+export const MessageContanier = styled.div`
+  display: flex;
+  border-radius: 8px;
+  gap: 10px;
+  align-items: flex-end;
+`;
+
+export const SendMessageTextArea = styled.textarea`
+  flex-grow: 1;
+  min-height: 100px;
+  height: 100px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: none;
+  font-size: ${({ theme }) => theme.typography.small};
+  box-sizing: border-box;
+
+  &::placeholder {
+    color: ${({ theme }) => theme.colors.darkgray};
+    font-weight: ${({ theme }) => theme.weight.light};
+  }
+`;
+
+export const SendButton = styled.div`
+  background: #173854;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  cursor: pointer;
+  align-self: flex-end;
+`;
+
+export const SendImage = styled.img`
+  width: 15px;
+  height: 14px;
+`;
+
 export const MicroPhoneIcon = styled.img`
   width: 20px;
   height: 25px;
@@ -121,7 +182,6 @@ export const AddNewParticipantsContainer = styled.div`
 `;
 export const StyledDropdown = styled.div`
   .p-dropdown {
-    width: 210px;
     height: 45px;
     padding: 15px;
     border: 1px solid #05324e;

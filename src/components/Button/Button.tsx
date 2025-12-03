@@ -12,6 +12,7 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   border?: string;
   padding?: string;
   width?: string;
+  textDecoration?: string;
 }
 
 const Button = ({
@@ -25,6 +26,7 @@ const Button = ({
   border,
   padding,
   width,
+  textDecoration,
   ...rest
 }: Props) => {
   return (
@@ -33,6 +35,7 @@ const Button = ({
       color={color ?? "#FFFFFF"}
       border={border ?? "none"}
       padding={padding ?? "15px"}
+      textDecoration={textDecoration ?? "none"}
       width={width ?? ""}
       {...rest}
     >

@@ -11,6 +11,7 @@ import {
   CheckMark,
   DeleteBtn,
   Divider,
+  ErrorText,
   FooterSection,
   Form,
   FormGroup,
@@ -381,7 +382,7 @@ export const FamilyAndFriend = () => {
           style={{
             content: {
               width: "840px",
-              height: "350px",
+              height: "420px",
               margin: "auto",
               background: "white",
               borderRadius: "4px",
@@ -423,17 +424,17 @@ export const FamilyAndFriend = () => {
                 <FormGroup>
                   <Label>Participant Name</Label>
                   <Input
+                    style={{ borderColor: errors.name ? "red" : undefined }}
                     placeholder="John Martin"
                     {...register("name", { required: "Name is required" })}
                   />
-                  {errors.name && (
-                    <span style={{ color: "red" }}>{errors.name.message}</span>
-                  )}
+                  {errors.name && <ErrorText>{errors.name.message}</ErrorText>}
                 </FormGroup>
 
                 <FormGroup>
                   <Label>Phone Number</Label>
                   <Input
+                    style={{ borderColor: errors.mobile ? "red" : undefined }}
                     placeholder="+01 66262 62626"
                     type="number"
                     {...register("mobile", {
@@ -441,15 +442,14 @@ export const FamilyAndFriend = () => {
                     })}
                   />
                   {errors.mobile && (
-                    <span style={{ color: "red" }}>
-                      {errors.mobile.message}
-                    </span>
+                    <ErrorText>{errors.mobile.message}</ErrorText>
                   )}
                 </FormGroup>
 
                 <FormGroup>
                   <Label>Email Address</Label>
                   <Input
+                    style={{ borderColor: errors.email ? "red" : undefined }}
                     placeholder="test@email.com"
                     {...register("email", {
                       required: "Email is required",
@@ -460,28 +460,21 @@ export const FamilyAndFriend = () => {
                     })}
                   />
                   {errors.email && (
-                    <span style={{ color: "red" }}>{errors.email.message}</span>
+                    <ErrorText>{errors.email.message}</ErrorText>
                   )}
                 </FormGroup>
 
                 <FormGroup>
                   <Label>Select Relation</Label>
                   <Input
+                    style={{ borderColor: errors.relation ? "red" : undefined }}
                     placeholder="Father"
                     {...register("relation", {
                       required: "Relation is required",
                     })}
                   />
                   {errors.relation && (
-                    <span style={{ color: "red" }}>
-                      {errors.relation.message}
-                    </span>
-                  )}
-
-                  {errors.relation && (
-                    <span style={{ color: "red" }}>
-                      {errors.relation.message}
-                    </span>
+                    <ErrorText>{errors.relation.message}</ErrorText>
                   )}
                 </FormGroup>
               </FormWrapper>

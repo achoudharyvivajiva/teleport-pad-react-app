@@ -5,7 +5,6 @@ import {
   LeftPanel,
   MainStage,
   MicrophoneIcon,
-  RightPanel,
   UserVideoInfo,
   VideoBox,
   VideoContanier,

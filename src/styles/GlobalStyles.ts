@@ -51,4 +51,12 @@ cursor: pointer;
   .p-dropdown-item:hover {
     background-color: ${({ theme }) => theme.colors.lightgray} !important;
   }
+
+
+  .swiper {
+  width: 100%;
+  height: 100%;
+}
+
+
 `;

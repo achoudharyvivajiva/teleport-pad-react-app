@@ -141,25 +141,28 @@ export const CheckMark = styled.span`
   width: 20px;
   height: 20px;
   border: 2px solid #888;
-  border-radius: 4px;
+  border-radius: 3px;
   display: inline-block;
   transition: all 0.2s ease;
   position: relative;
 
   /* When checked → green box */
   ${CheckBoxInput}:checked + & {
-    background-color: #27c152; /* your theme green */
+    background-color: #27c152;
     border-color: #27c152;
   }
 
   /* Tick icon */
   ${CheckBoxInput}:checked + &::after {
-    content: "✔";
+    content: "";
     position: absolute;
-    font-size: ${({ theme }) => theme.typography.body};
-    color: white;
     left: 3px;
-    top: 0px;
+    top: 2px;
+    width: 12px;
+    height: 12px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 507.506 507.506'><path fill='white' d='M163.865,436.934c-14.406,0.006-28.222-5.72-38.4-15.915L9.369,304.966c-12.492-12.496-12.492-32.752,0-45.248l0,0c12.496-12.492,32.752-12.492,45.248,0l109.248,109.248L452.889,79.942c12.496-12.492,32.752-12.492,45.248,0l0,0c12.492,12.496,12.492,32.752,0,45.248L202.265,421.019C192.087,431.214,178.271,436.94,163.865,436.934z'/></svg>");
+    background-size: contain;
+    background-repeat: no-repeat;
   }
 `;
 
@@ -241,7 +244,7 @@ export const ModelHeaderTitle = styled.p`
 
 export const ModelBody = styled.div`
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto;
   padding: 5px;
   gap: 5px;
 `;
@@ -271,35 +274,32 @@ export const ModelPrimaryButton = styled.button`
   margin-top: 40px;
 `;
 export const Form = styled.form`
-  width: 100%;
+  width: 90%;
   background: ${({ theme }) => theme.colors.white};
-  margin: 10px;
+  margin: 20px auto;
+  border-radius: 6px;
 `;
 
 export const FormWrapper = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  justify-items: start;
   gap: 24px 40px;
   margin-top: 20px;
   background-color: ${({ theme }) => theme.colors.white} !important;
+
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
-    gap: 20px;
+    justify-items: center;
   }
 `;
 
 export const FormGroup = styled.div`
+  width: 100%;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-export const Label = styled.label`
-  font-size: 16px;
-  font-weight: 500;
-  color: ${({ theme }) => theme.colors.primary};
-  margin-bottom: 6px;
+  flex-direction: column;
+  gap: 6px;
 `;
 
 export const Input = styled.input`
@@ -309,7 +309,7 @@ export const Input = styled.input`
   border-radius: 6px;
   border: 1px solid #d9d9d9;
   background: #f3f6f9;
-  width: 240px;
+  width: 100%;
 
   &:focus {
     outline: none;
@@ -328,9 +328,20 @@ export const Input = styled.input`
   }
   &:focus {
     border-color: ${({ theme }) => theme.colors.secondary};
-    background-color: rgba(0, 255, 0, 0.05);
     box-shadow: 0 0 5px ${({ theme }) => theme.colors.secondary};
   }
+`;
+export const Label = styled.label`
+  font-size: 16px;
+  font-weight: 500;
+  color: ${({ theme }) => theme.colors.primary};
+  margin-bottom: 0px;
+`;
+
+export const ErrorText = styled.span`
+  color: red;
+  font-size: 14px;
+  margin-top: 2px;
 `;
 
 export const Select = styled.select`
